@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import json
 from spotify_utils import get_access_token, search_track_id
-import requests
 from reccobeats_utils import get_full_music_data_from_reccobeats
 
 st.set_page_config(page_title="ReccoBeats Music Analyzer 🎧", layout="wide")

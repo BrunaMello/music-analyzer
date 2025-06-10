@@ -1,10 +1,6 @@
-import os
 import base64
 import requests
-from dotenv import load_dotenv
 import streamlit as st
-
-load_dotenv()
 
 
 def get_access_token():
