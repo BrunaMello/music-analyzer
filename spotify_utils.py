@@ -8,11 +8,11 @@ load_dotenv()
 
 
 def get_access_token():
-    client_id = os.getenv("SPOTIFY_CLIENT_ID")
-    client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
+    client_id = st.secrets["SPOTIFY_CLIENT_ID"]
+    client_secret = st.secrets["SPOTIFY_CLIENT_SECRET"]
 
     if not client_id or not client_secret:
-        raise Exception("there is no CLIENT_ID ou CLIENT_SECRET on .env")
+        raise Exception("there is no CLIENT_ID ou CLIENT_SECRET on secrets.toml")
 
     auth = f"{client_id}:{client_secret}"
     b64_auth = base64.b64encode(auth.encode()).decode()

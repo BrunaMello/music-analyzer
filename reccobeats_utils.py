@@ -1,7 +1,7 @@
 # import requests
 # import pandas as pd
 # import time
-# import streamlit as st
+# import .streamlit as st
 
 # def get_track_details_from_reccobeats(spotify_ids, delay=0.2):
 #     """
