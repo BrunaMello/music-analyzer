@@ -53,7 +53,8 @@ if json_2:
         if not full_result:
             st.warning("⚠️ No track data returned.")
         else:
-            df_new = pd.DataFrame(full_result)
+            # df_new = pd.DataFrame(full_result)
+            df_new = pd.json_normalize(full_result)
 
             # 🔁 Mesclar os dados originais com os da API, com base no spotify_id
             df_merged = df_original.merge(df_new, on="spotify_id", how="left")
@@ -64,4 +65,13 @@ if json_2:
             json_str = json.dumps(df_merged.to_dict(orient="records"), indent=2)
             st.download_button("⬇️ Download merged JSON", json_str,
                                file_name="reccobeats_merged_output.json", mime="application/json")
+
+            # Novo botão: exportar CSV
+            csv_bytes = df_merged.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                label="⬇️ Download merged CSV",
+                data=csv_bytes,
+                file_name="reccobeats_merged_output.csv",
+                mime="text/csv"
+            )
 
